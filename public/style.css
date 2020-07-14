@@ -96,8 +96,11 @@ input {
 }
 
 .wrapper {
-  background-color: #f2f8ff;
+  background-color: #0f264e;
   padding-bottom: 100px;
+}
+h1{
+  color: #ffffff;
 }
 
 .card.m-auto,
