@@ -59,5 +59,13 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
 });
 
 //GET request for html exercise  route in public folder
+router.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
+
+//GET request for stats route in public folder
+router.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
 
 module.exports = router;
