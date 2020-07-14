@@ -24,4 +24,14 @@ router.post("api/workouts", (req, res) => {
         .catch( e => {res.json(e)})
 });
 
-router.put("")
+
+//PUT request
+// router.put("/api/workout:id", (req, res) => {
+
+// })
+
+
+//GET request for html routes in public folder 
+router.get("/exercise", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/exercise.html"));
+})
