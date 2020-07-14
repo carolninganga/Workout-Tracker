@@ -34,4 +34,12 @@ router.post("api/workouts", (req, res) => {
 //GET request for html routes in public folder 
 router.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
-})
+});
+
+//GET request for html routes in public folder 
+router.get("/stats", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
+
+
+
