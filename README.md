@@ -1,5 +1,8 @@
 # Mphavu Mode
 
+## Link to project URL
+https://mphavu.herokuapp.com/?id=5f0e34c03d95240017c54343
+
 <img width="1409" alt="Screen Shot 2020-07-14 at 7 05 19 PM" src="https://user-images.githubusercontent.com/33443452/87484826-35ebbf80-c605-11ea-92db-281f449c6d59.png">
 <img width="743" alt="Screen Shot 2020-07-14 at 7 06 19 PM" src="https://user-images.githubusercontent.com/33443452/87484829-384e1980-c605-11ea-9df5-7550962799a0.png">
 <img width="907" alt="Screen Shot 2020-07-14 at 7 05 52 PM" src="https://user-images.githubusercontent.com/33443452/87484836-3d12cd80-c605-11ea-868d-2f7d7aae808d.png">
@@ -26,11 +29,6 @@ npm i
 ## Contributing 
 Caroline Ning'ang'a
 
-## License
-
-
-## Link to project URL
-https://mphavu.herokuapp.com/?id=5f0e34c03d95240017c54343
 
 ## Tests
 
