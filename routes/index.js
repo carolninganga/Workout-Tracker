@@ -1,63 +1,67 @@
+
 const router = require("express").Router();
-const path = require("path");
+const CurrentWorkout = require("../models/workout.js");
 
-//importing database that was exported as index.js in models folder
-const database = require("../models");
-
-//setting up api routes
-
-//GET request that fetches the info from client side
-router.get("/api/workouts", (req, res) => {
-  database.Workouts.find({})
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((e) => {
-      res.json(e);
-    });
-});
-
-//POST request that creates the information for the client side
 router.post("/api/workouts", (req, res) => {
-  workout = new database.Workouts();
-  workout.DurationOfWorkout();
-
-  database.Workouts.create(workout)
-    .then((data) => {
-      res.json(data);
+  CurrentWorkout.create({})
+    .then(dbWorkout => {
+      res.json(dbWorkout);
     })
-    .catch((e) => {
-      res.json(e);
-    });
-});
-
-//Delete request
-router.delete("/api/workouts", ({ body }, res) => {
-  Workout.findByIdAndDelete(body.id)
-    .then(() => {
-      res.json(true);
-    })
-    .catch((err) => {
+    .catch(err => {
       res.json(err);
     });
 });
 
-//UPDATE
 router.put("/api/workouts/:id", ({ body, params }, res) => {
-  Workout.findByIdAndUpdate(
+  CurrentWorkout.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
     // "runValidators" will ensure new exercises meet our schema requirements
     { new: true, runValidators: true }
   )
-    .then((dbWorkout) => {
+    .then(dbWorkout => {
       res.json(dbWorkout);
     })
-    .catch((err) => {
+    .catch(err => {
       res.json(err);
     });
 });
 
+router.get("/api/workouts", (req, res) => {
+  CurrentWorkout.find()
+    .then(dbWorkouts => {
+      res.json(dbWorkouts);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.get("/api/workouts/range", (req, res) => {
+  CurrentWorkout.find({}).limit(7)
+    .then(dbWorkouts => {
+      console.log(dbWorkouts)
+      res.json(dbWorkouts);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.delete("/api/workouts", ({ body }, res) => {
+  CurrentWorkout.findByIdAndDelete(body.id)
+    .then(() => {
+      res.json(true);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+module.exports = router;
+
+
+const path = require("path");
 //GET request for html exercise  route in public folder
 router.get("/exercise", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
@@ -68,4 +72,4 @@ router.get("/stats", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
 
-module.exports = router;
+// module.exports = router;
