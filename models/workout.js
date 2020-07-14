@@ -2,9 +2,9 @@
 const mongoose = require("mongoose");
 
 //define database schema
-const Schcema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Shema ({
+const WorkoutSchema = new Schema ({
     day: {
         type: Date,
         default: new Date()
@@ -22,6 +22,10 @@ const WorkoutSchema = new Shema ({
 });
 
 //calculation of total weight
-Workout.method.DurationOfWorkout = () =>{
-    this.durationTl = this.exercise.reduce
+WorkoutSchema.method.DurationOfWorkout = () =>{
+    // this.durationTl = this.exercise.reduce
 }
+
+const Workout = mongoose.model("Workout", WorkoutSchema)
+
+module.exports = Workout
